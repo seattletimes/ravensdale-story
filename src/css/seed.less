@@ -2,6 +2,8 @@
 @import "flexbox";
 @import "page";
 
+@dark: #685959;
+
 body {
   font-size: 16px;
 }
@@ -33,10 +35,21 @@ body {
   }
 }
 
-.title {
+.caption {
+  background: @dark;
+  padding: 15px;
+  color: white;
+}
+
+.title, .featured {
   font-weight: bold;
   font-size: 20px;
   font-family: @df-sans;
+}
+
+.listen {
+  font-family: @df-sans;
+  cursor: pointer;
 }
 
 .credits {
@@ -57,7 +70,7 @@ body {
   position: absolute;
   top: 35%;
   left: 45%;
-  color: @df-orange;
+  color: @dark;
   cursor: pointer;
 
   &:hover {
@@ -76,7 +89,7 @@ body {
 
 .audio-icon {
   font-size: 12px;
-  color: @df-orange;
+  color: @dark;
   text-transform: uppercase;
   font-weight: bold;
   cursor: pointer;
@@ -95,6 +108,6 @@ body {
   cursor: pointer;
 
   &:hover {
-    color: @df-orange;
+    color: @dark;
   }
 }

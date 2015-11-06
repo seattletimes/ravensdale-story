@@ -16,20 +16,26 @@ document.querySelector(".play.without-sound").addEventListener("click", function
   begin();
 });
 document.querySelector(".playing.audio-icon").addEventListener("click", function(e) {
+  sound = false;
   e.target.classList.add("hidden");
   document.querySelector(".muted.audio-icon").classList.remove("hidden");
+  console.log(sound)
 });
 document.querySelector(".muted.audio-icon").addEventListener("click", function(e) {
+  sound = true;
   e.target.classList.add("hidden");
   document.querySelector(".playing.audio-icon").classList.remove("hidden");
+  console.log(sound)
 });
 document.querySelector(".next").addEventListener("click", function(e) {
   if (index < length) index += 1;
   changeImage();
+  console.log(sound)
 });
 document.querySelector(".previous").addEventListener("click", function(e) {
   if (index > 0) index -= 1;
   changeImage();
+  console.log(sound)
 });
 
 var index = 0;
@@ -59,9 +65,13 @@ var changeImage = function() {
     document.querySelector(".previous").classList.remove("hidden");
   }
 
-  document.querySelector(".caption").innerHTML = data[index].caption;
+  document.querySelector(".caption").innerHTML = `
+    <div class="featured">${data[index].featured}</div>
+    <div>${data[index].caption}</div>
+    <div class="listen"><i class="fa fa-play"></i> LISTEN</div>
+  `;
   var img = document.createElement("img");
-  img.src = data[index].image;
+  img.src = `./assets/${data[index].image}`;
   img.onload = function() {
     var frame = document.querySelector(".image");
     frame.innerHTML = "";
@@ -69,10 +79,18 @@ var changeImage = function() {
     img.removeAttribute("height");
   }
 
-  var audio = document.createElement("audio");
+  var audio = document.querySelector("audio");
+  if (audio) document.body.removeChild(audio);
+
+  audio = document.createElement("audio");
   audio.src = `./assets/${data[index].audio}`;
+  document.body.appendChild(audio);
 
   if (sound) { audio.play(); }
+
+  document.querySelector(".listen").addEventListener("click", function(e) {
+    document.querySelector("audio").play();
+  });
 };
 
 
