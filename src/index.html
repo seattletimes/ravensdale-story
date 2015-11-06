@@ -9,38 +9,8 @@
     <%= t.include("partials/_head.html") %>
   </head>
   <body>
-
-    <div class="title">Hello world</div>
-
-    <div class="gallery">
-
-      <div class="play with-sound">
-        <i class="fa fa-play-circle"></i>
-      </div>
-
-      <div class="play without-sound">
-        Play without sound
-      </div>
-
-      <div class="image">
-        <img src="http://placekitten.com/900/600">
-      </div>
-
-      <div class="audio-icons">
-        <div class="hidden playing audio-icon"><i class="fa fa-microphone"></i> Click to mute audio</div>
-        <div class="hidden muted audio-icon"><i class="fa fa-microphone-slash"></i> Click to hear audio</div>
-      </div>
-
-      <div class="caption"></div>
-      
-      <div class="hidden previous">
-        <i class="fa fa-arrow-left"></i>
-      </div>
-      <div class="hidden next">
-        <i class="fa fa-arrow-right"></i>
-      </div>
-
-    </div>
+    <a href="http://www.seattletimes.com"><img class="logo" src="./assets/seattletimes.svg"></a>
+    <%= t.include("./_gallery.html") %>
 
     <script>
       var data = <%= JSON.stringify(csv.images) %>;

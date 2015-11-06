@@ -6,6 +6,7 @@ require("component-responsive-frame/child");
 
 var sound;
 
+// Event listeners
 document.querySelector(".play.with-sound").addEventListener("click", function(e) {
   sound = true;
   begin();
@@ -14,7 +15,6 @@ document.querySelector(".play.without-sound").addEventListener("click", function
   sound = false;
   begin();
 });
-
 document.querySelector(".playing.audio-icon").addEventListener("click", function(e) {
   e.target.classList.add("hidden");
   document.querySelector(".muted.audio-icon").classList.remove("hidden");
@@ -23,7 +23,6 @@ document.querySelector(".muted.audio-icon").addEventListener("click", function(e
   e.target.classList.add("hidden");
   document.querySelector(".playing.audio-icon").classList.remove("hidden");
 });
-
 document.querySelector(".next").addEventListener("click", function(e) {
   if (index < length) index += 1;
   changeImage();
@@ -32,8 +31,6 @@ document.querySelector(".previous").addEventListener("click", function(e) {
   if (index > 0) index -= 1;
   changeImage();
 });
-
-// var dot = require("./lib/dot");
 
 var index = 0;
 var length = data.length - 1;
@@ -64,13 +61,18 @@ var changeImage = function() {
 
   document.querySelector(".caption").innerHTML = data[index].caption;
   var img = document.createElement("img");
-  img.src = `./assets/${data[index].image}`;
+  img.src = data[index].image;
   img.onload = function() {
     var frame = document.querySelector(".image");
     frame.innerHTML = "";
     frame.appendChild(img);
     img.removeAttribute("height");
   }
+
+  var audio = document.createElement("audio");
+  audio.src = `./assets/${data[index].audio}`;
+
+  if (sound) { audio.play(); }
 };
 
 
