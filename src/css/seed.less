@@ -3,13 +3,31 @@
 @import "page";
 
 @dark: #685959;
+@black: #232323;
 
 body {
-  font-size: 16px;
+  font-size: 18px;
+
+  &.outer {
+    max-width: 1400px;
+    margin: auto;
+    padding: 10px;
+
+    @media @mobile {
+      padding: 0;
+    }
+  }
 }
 
-.hidden {
-  display: none;
+.wrapper {
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 30px;
+
+  @media @mobile {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
 }
 
 .gallery {
@@ -26,30 +44,64 @@ body {
 
 .column {
   .flex(0 0 400px);
-  padding-right: 40px;
-  padding-left: 10px;
+  padding-left: 40px;
 
   @media @tablet {
-    padding-right: 0;
     padding-left: 0;
   }
 }
 
 .caption {
-  background: @dark;
-  padding: 15px;
-  color: white;
+  margin-top: 30%;
+  padding-bottom: 15px;
+
+  @media @tablet {
+    margin-top: 0;
+  }
 }
 
 .title, .featured {
   font-weight: bold;
-  font-size: 20px;
+  font-size: 24px;
   font-family: @df-sans;
+  display: inline-block;
+  padding: 0 10px 10px 10px;
 }
 
-.listen {
+.arrow, .rewind {
+  display: inline-block;
+  color: #a88c8c;
+  cursor: pointer;
+  transition: color .1s linear;
+  font-size: 22px !important;
+
+  &:hover {
+    color: @black;
+  }
+  &.hidden {
+    display: none;
+  }
+}
+
+.listen, .audio-icon {
+  background: @dark;
+  color: white;
   font-family: @df-sans;
   cursor: pointer;
+  font-size: 12px;
+  padding: 4px 10px;
+  display: inline-block;
+  border-radius: 3px;
+  transition: background .1s linear;
+
+  .fa {
+    font-size: 16px;
+    padding-right: 4px;
+  }
+
+  &:hover {
+    background: @black;
+  }
 }
 
 .credits {
@@ -74,7 +126,7 @@ body {
   cursor: pointer;
 
   &:hover {
-    color: @df-dark-gray;
+    color: @black;
   }
 
   &.with-sound {
@@ -87,27 +139,26 @@ body {
   }
 }
 
-.audio-icon {
-  font-size: 12px;
-  color: @dark;
-  text-transform: uppercase;
-  font-weight: bold;
-  cursor: pointer;
+.audio-icons {
+  display: inline-block;
+}
 
-  .fa {
-    font-size: 20px;
-    padding-right: 4px;
+.audio-icon {
+  display: inline-block;
+  font-family: @df-sans;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background .1s linear;
+  
+  &.muted {
+    background: #CCC;
   }
 
-  &.muted {
-    color: @df-border-gray;
+  &:hover {
+    background: @black;
   }
 }
 
-.previous, .next {
-  cursor: pointer;
-
-  &:hover {
-    color: @dark;
-  }
+.hidden {
+  display: none;
 }

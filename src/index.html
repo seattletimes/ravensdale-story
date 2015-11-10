@@ -8,9 +8,18 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <%= t.include("partials/_head.html") %>
   </head>
-  <body>
-    <a href="http://www.seattletimes.com"><img class="logo" src="./assets/seattletimes.svg"></a>
-    <%= t.include("./_gallery.html") %>
+  <body class="outer">
+    <nav class="top-bar">
+      <a class="logo" href="http://seattletimes.com">
+        <img src="./assets/seattletimes.svg">
+      </a>
+    </nav>
+
+    <div class="wrapper">
+      <%= t.include("./_gallery.html") %>
+    </div>
+
+    <%= t.include("partials/_ad.html", { type: "bannerBottom" }) %>
 
     <script>
       var data = <%= JSON.stringify(csv.images) %>;

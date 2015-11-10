@@ -1,5 +1,48 @@
-.logo {
-  height: 30px;
-  margin: 5px;
-  margin-bottom: 30px;
+nav.top-bar {
+  border-bottom: 1px solid @df-border-gray;
+  position: relative;
+  clear: both;
+  z-index: 99;
+
+  @media @mobile {
+    border: none;
+    top: 0;
+    height: 40px;
+    width: 100%;
+    background: white;
+  }
+
+  .logo {
+    width: 100%;
+    position: relative;
+    top: 30px;
+    text-align: center;
+    display: block;
+
+    @media @mobile {
+      top: 0;
+
+    }
+
+    img {
+      box-sizing: content-box;
+      height: 30px;
+      background: white;
+      padding: 10px;
+      border: none;
+
+      @media @mobile {
+        background: none;
+        padding: 5px;
+      }
+    }
+  }
+}
+
+.ad {
+  text-align: center;
+  margin-top: 30px;
+  padding-top: 30px;
+  padding-bottom: 20px;
+  border-top: 1px solid @df-border-gray;
 }

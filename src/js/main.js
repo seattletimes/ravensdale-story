@@ -1,5 +1,5 @@
 // require("./lib/social");
-// require("./lib/ads");
+require("./lib/ads");
 // var track = require("./lib/tracking");
 
 require("component-responsive-frame/child");
@@ -15,37 +15,41 @@ document.querySelector(".play.without-sound").addEventListener("click", function
   sound = false;
   begin();
 });
-document.querySelector(".playing.audio-icon").addEventListener("click", function(e) {
-  sound = false;
-  e.target.classList.add("hidden");
-  document.querySelector(".muted.audio-icon").classList.remove("hidden");
-  console.log(sound)
-});
-document.querySelector(".muted.audio-icon").addEventListener("click", function(e) {
-  sound = true;
-  e.target.classList.add("hidden");
-  document.querySelector(".playing.audio-icon").classList.remove("hidden");
-  console.log(sound)
-});
-document.querySelector(".next").addEventListener("click", function(e) {
-  if (index < length) index += 1;
-  changeImage();
-  console.log(sound)
-});
-document.querySelector(".previous").addEventListener("click", function(e) {
-  if (index > 0) index -= 1;
-  changeImage();
-  console.log(sound)
-});
 
 var index = 0;
 var length = data.length - 1;
 
 var begin = function() {
+  document.querySelector(".gallery").innerHTML = `
+    <div class="image">
+      <img src="./assets/slide1.gif">
+    </div>
+
+    <div class="column">
+      <div class="caption"></div>
+
+      <div class="listen"><i class="fa fa-volume-up"></i> LISTEN</div>
+
+      <div class="audio-icons">
+        <div class="hidden playing audio-icon"><i class="fa fa-microphone"></i> MUTE</div>
+        <div class="hidden muted audio-icon"><i class="fa fa-microphone-slash"></i> MUTE</div>
+      </div>
+    </div>
+  `;
+
   changeImage();
-  document.querySelector(".play.with-sound").classList.add("hidden");
-  document.querySelector(".play.without-sound").classList.add("hidden");
-  document.querySelector(".next").classList.remove("hidden");
+
+  document.querySelector(".playing.audio-icon").addEventListener("click", function(e) {
+    sound = false;
+    e.target.classList.add("hidden");
+    document.querySelector(".muted.audio-icon").classList.remove("hidden");
+  });
+  document.querySelector(".muted.audio-icon").addEventListener("click", function(e) {
+    sound = true;
+    e.target.classList.add("hidden");
+    document.querySelector(".playing.audio-icon").classList.remove("hidden");
+  });
+
   if (sound) {
     document.querySelector(".playing.audio-icon").classList.remove("hidden")
   } else {
@@ -54,21 +58,10 @@ var begin = function() {
 };
 
 var changeImage = function() {
-  if (index == length) { 
-    document.querySelector(".next").classList.add("hidden");
-  } else {
-    document.querySelector(".next").classList.remove("hidden");
-  }
-  if (index == 0) { 
-    document.querySelector(".previous").classList.add("hidden");
-  } else {
-    document.querySelector(".previous").classList.remove("hidden");
-  }
 
   document.querySelector(".caption").innerHTML = `
-    <div class="featured">${data[index].featured}</div>
+    <i class="previous arrow fa fa-chevron-left"></i><div class="featured">${data[index].featured}</div><i class="fa hidden rewind fa-undo"></i><i class="next fa arrow fa-chevron-right"></i>
     <div>${data[index].caption}</div>
-    <div class="listen"><i class="fa fa-play"></i> LISTEN</div>
   `;
   var img = document.createElement("img");
   img.src = `./assets/${data[index].image}`;
@@ -77,6 +70,19 @@ var changeImage = function() {
     frame.innerHTML = "";
     frame.appendChild(img);
     img.removeAttribute("height");
+  }
+
+  if (index == length) { 
+    document.querySelector(".next").classList.add("hidden");
+    document.querySelector(".rewind").classList.remove("hidden");
+  } else {
+    document.querySelector(".next").classList.remove("hidden");
+    document.querySelector(".rewind").classList.add("hidden");
+  }
+  if (index == 0) { 
+    document.querySelector(".previous").classList.add("hidden");
+  } else {
+    document.querySelector(".previous").classList.remove("hidden");
   }
 
   var audio = document.querySelector("audio");
@@ -90,8 +96,32 @@ var changeImage = function() {
 
   document.querySelector(".listen").addEventListener("click", function(e) {
     document.querySelector("audio").play();
+    document.querySelector(".playing.audio-icon").classList.remove("hidden");
+    document.querySelector(".muted.audio-icon").classList.add("hidden");
+    sound = true;
   });
+  document.querySelector(".next").addEventListener("click", function(e) {
+    if (index < length) index += 1;
+    changeImage();
+  });
+  document.querySelector(".previous").addEventListener("click", function(e) {
+    if (index > 0) index -= 1;
+    changeImage();
+  });
+  document.querySelector(".rewind").addEventListener("click", function(e) {
+    index = 0;
+    changeImage();
+  });
+
+  if (index == length) { 
+    document.querySelector(".next").classList.add("hidden");
+  } else {
+    document.querySelector(".next").classList.remove("hidden");
+  }
+  if (index == 0) { 
+    document.querySelector(".previous").classList.add("hidden");
+  } else {
+    document.querySelector(".previous").classList.remove("hidden");
+  }
 };
-
-
 
