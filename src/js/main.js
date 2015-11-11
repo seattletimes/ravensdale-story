@@ -26,14 +26,18 @@ var begin = function() {
     </div>
 
     <div class="column">
-      <div class="caption"></div>
+      <div class="title"></div>
 
-      <div class="listen"><i class="fa fa-volume-up"></i> LISTEN</div>
+      <div class="buttons">
+        <div class="listen"><i class="fa fa-volume-up"></i> LISTEN</div>
 
-      <div class="audio-icons">
-        <div class="hidden playing audio-icon"><i class="fa fa-microphone"></i> MUTE</div>
-        <div class="hidden muted audio-icon"><i class="fa fa-microphone-slash"></i> MUTE</div>
+        <div class="audio-icons">
+          <div class="hidden playing audio-icon"><i class="fa fa-microphone"></i> MUTE</div>
+          <div class="hidden muted audio-icon"><i class="fa fa-microphone-slash"></i> MUTE</div>
+        </div>
       </div>
+
+      <div class="caption"></div>
     </div>
   `;
 
@@ -58,11 +62,8 @@ var begin = function() {
 };
 
 var changeImage = function() {
-
-  document.querySelector(".caption").innerHTML = `
-    <i class="previous arrow fa fa-chevron-left"></i><div class="featured">${data[index].featured}</div><i class="fa hidden rewind fa-undo"></i><i class="next fa arrow fa-chevron-right"></i>
-    <div>${data[index].caption}</div>
-  `;
+  document.querySelector(".title").innerHTML = `<i class="previous arrow fa fa-chevron-left"></i><div class="featured">${data[index].featured}</div><i class="fa hidden rewind fa-undo"></i><i class="next fa arrow fa-chevron-right"></i>`;
+  document.querySelector(".caption").innerHTML = data[index].caption;
   var img = document.createElement("img");
   img.src = `./assets/${data[index].image}`;
   img.onload = function() {

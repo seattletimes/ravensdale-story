@@ -51,12 +51,27 @@ body {
   }
 }
 
-.caption {
+.title {
   margin-top: 30%;
-  padding-bottom: 15px;
 
   @media @tablet {
-    margin-top: 0;
+    margin-top: 10px;
+    text-align: center;
+    display: block !important;
+  }
+}
+
+.buttons {
+  @media @tablet {
+    text-align: center;
+  }
+}
+
+.caption {
+  padding-top: 15px;
+
+  @media @tablet {
+    font-size: 16px;
   }
 }
 
@@ -65,7 +80,7 @@ body {
   font-size: 24px;
   font-family: @df-sans;
   display: inline-block;
-  padding: 0 10px 10px 10px;
+  padding-bottom: 5px;
 }
 
 .arrow, .rewind {
@@ -81,6 +96,17 @@ body {
   &.hidden {
     display: none;
   }
+
+  &.next {
+    padding-left: 10px;
+  }
+  &.previous {
+    padding-right: 10px;
+  }
+}
+
+.rewind {
+  padding-left: 10px;
 }
 
 .listen, .audio-icon {
@@ -157,6 +183,10 @@ body {
   &:hover {
     background: @black;
   }
+}
+
+.text {
+  padding-top: 15px;
 }
 
 .hidden {
