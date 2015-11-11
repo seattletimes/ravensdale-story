@@ -20,6 +20,7 @@ var index = 0;
 var length = data.length - 1;
 
 var begin = function() {
+  console.log(data[index])
   document.querySelector(".gallery").innerHTML = `
     <div class="image">
       <img src="./assets/slide1.gif">
@@ -74,9 +75,11 @@ var changeImage = function() {
   }
 
   if (index == length) { 
+    document.querySelector(".buttons").classList.add("hidden");
     document.querySelector(".next").classList.add("hidden");
     document.querySelector(".rewind").classList.remove("hidden");
   } else {
+    document.querySelector(".buttons").classList.remove("hidden");
     document.querySelector(".next").classList.remove("hidden");
     document.querySelector(".rewind").classList.add("hidden");
   }

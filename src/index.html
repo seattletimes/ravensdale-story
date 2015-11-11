@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <%= t.include("partials/_head.html") %>
   </head>
-  <body class="outer">
+  <body>
     <nav class="top-bar">
       <a class="logo" href="http://seattletimes.com">
         <img src="./assets/seattletimes.svg">
@@ -20,6 +20,10 @@
     </div>
 
     <%= t.include("partials/_ad.html", { type: "bannerBottom" }) %>
+    <div class="bottom">
+      <div class="copyright published"><em>Originally published November 15, 2015</em></div>
+      <div class="copyright">| Copyright 2015 The Seattle Times</div>
+    </div>
 
     <script>
       var data = <%= JSON.stringify(csv.images) %>;
