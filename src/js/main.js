@@ -38,6 +38,8 @@ var begin = function() {
         </div>
       </div>
 
+      <div class="index"></div>
+
       <div class="caption"></div>
     </div>
   `;
@@ -63,6 +65,7 @@ var begin = function() {
 };
 
 var changeImage = function() {
+  document.querySelector(".index").innerHTML = `${index + 1} / ${length + 1}`;
   document.querySelector(".title").innerHTML = `<i class="previous arrow fa fa-chevron-left"></i><div class="featured">${data[index].featured}</div><i class="fa hidden rewind fa-undo"></i><i class="next fa arrow fa-chevron-right"></i>`;
   document.querySelector(".caption").innerHTML = data[index].caption;
   var img = document.createElement("img");
