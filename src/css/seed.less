@@ -22,6 +22,10 @@ body {
   @media @mobile {
     padding: 20px 5px;
   }
+
+  .readmore a {
+    display: block;
+  }
 }
 
 .splash {
@@ -42,6 +46,7 @@ body {
 
 .column {
   .flex(0 0 400px);
+  position: relative;
   padding-left: 40px;
 
   @media @tablet {
@@ -51,6 +56,14 @@ body {
 
 .title {
   margin-top: 30%;
+
+  @media @bigbreak {
+    margin-top: 10%;
+  }
+
+  @media @littlebreak {
+    margin-top: 0;
+  }
 
   @media @tablet {
     margin-top: 10px;
@@ -77,15 +90,35 @@ body {
   }
 }
 
+.readmore a {
+  display: none;
+  font-family: @df-sans;
+  color: @dark;
+  text-transform: uppercase;
+  font-size: 13px;
+  line-height: 28px;
+  float: right;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color .1s linear;
+
+  &:hover {
+    color: @black;
+  }
+}
+
 .caption {
-  @media @tablet {
+  @media @bigbreak {
+    font-size: 17px;
+  }
+  @media @littlebreak {
     font-size: 16px;
   }
 }
 
 .title, .featured {
   font-weight: bold;
-  font-size: 24px;
+  font-size: 30px;
   font-family: @df-sans;
   display: inline-block;
   padding-bottom: 5px;
@@ -96,7 +129,7 @@ body {
   color: @brown;
   cursor: pointer;
   transition: color .1s linear;
-  font-size: 22px !important;
+  font-size: 26px !important;
 
   &:hover {
     color: @black;

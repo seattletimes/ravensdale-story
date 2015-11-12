@@ -38,7 +38,7 @@ var begin = function() {
       </div>
 
       <div class="caption"></div>
-
+      <div class="readmore"><a href="#" target="_blank">Read the full story <i class="fa fa-long-arrow-right"></i></a></div>
       <div class="index">
         <i class="fa fa-circle dot-1"></i>
         <i class="fa fa-circle dot-2"></i>
@@ -49,6 +49,8 @@ var begin = function() {
         <i class="fa fa-circle dot-7"></i>
         <i class="fa fa-circle dot-8"></i>
       </div>
+
+
     </div>
   `;
 
