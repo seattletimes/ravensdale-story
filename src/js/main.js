@@ -20,7 +20,6 @@ var index = 0;
 var length = data.length - 1;
 
 var begin = function() {
-  console.log(data[index])
   document.querySelector(".gallery").innerHTML = `
     <div class="image">
       <img src="./assets/slide1.gif">
@@ -38,9 +37,18 @@ var begin = function() {
         </div>
       </div>
 
-      <div class="index"></div>
-
       <div class="caption"></div>
+
+      <div class="index">
+        <i class="fa fa-circle dot-1"></i>
+        <i class="fa fa-circle dot-2"></i>
+        <i class="fa fa-circle dot-3"></i>
+        <i class="fa fa-circle dot-4"></i>
+        <i class="fa fa-circle dot-5"></i>
+        <i class="fa fa-circle dot-6"></i>
+        <i class="fa fa-circle dot-7"></i>
+        <i class="fa fa-circle dot-8"></i>
+      </div>
     </div>
   `;
 
@@ -65,7 +73,7 @@ var begin = function() {
 };
 
 var changeImage = function() {
-  document.querySelector(".index").innerHTML = `${index + 1} / ${length + 1}`;
+  document.querySelector(".index .dot-" + (index + 1)).classList.add("darker");
   document.querySelector(".title").innerHTML = `<i class="previous arrow fa fa-chevron-left"></i><div class="featured">${data[index].featured}</div><i class="fa hidden rewind fa-undo"></i><i class="next fa arrow fa-chevron-right"></i>`;
   document.querySelector(".caption").innerHTML = data[index].caption;
   var img = document.createElement("img");
@@ -85,8 +93,13 @@ var changeImage = function() {
     document.querySelector(".buttons").classList.remove("hidden");
     document.querySelector(".next").classList.remove("hidden");
     document.querySelector(".rewind").classList.add("hidden");
+    document.querySelector(".index .dot-" + (index + 2)).classList.remove("darker");
   }
   if (index == 0) { 
+    Array.prototype.slice.call(document.querySelectorAll(".index .fa")).forEach(function(dot) {
+      dot.classList.remove("darker");
+    });
+    document.querySelector(".index .dot-" + (index + 1)).classList.add("darker");
     document.querySelector(".previous").classList.add("hidden");
   } else {
     document.querySelector(".previous").classList.remove("hidden");

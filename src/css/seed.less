@@ -66,19 +66,18 @@ body {
 }
 
 .index {
-  font-family: @df-sans;
-  padding-top: 15px;
-  font-size: 14px;
-  color: @dark;
-  font-weight: bold;
+  .fa {
+    font-size: 10px;
+    margin: 0 2px;
+    color: @light;
+
+    &.darker {
+      color: @dark;
+    }
+  }
 }
 
 .caption {
-  p {
-    margin-top: 5px;
-    margin-bottom: 5px;
-  }
-
   @media @tablet {
     font-size: 16px;
   }
