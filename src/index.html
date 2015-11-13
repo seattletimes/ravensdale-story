@@ -22,11 +22,74 @@
       <%= t.include("./_gallery.html") %>
     </div>
 
-    <%= t.include("partials/_ad.html", { type: "bannerBottom" }) %>
     <div class="bottom">
       <div class="copyright published"><em>Published November 15, 2015</em></div>
       <div class="copyright">| Copyright 2015 The Seattle Times</div>
     </div>
+
+    <div class="thin-div">
+      <div class="center">Don't Miss</div>
+    </div>
+
+    <div class="dont-miss">
+
+      <div class="story">
+        <div class="padded">
+        <a href="http://projects.seattletimes.com/2015/seattle-architecture-quiz/">
+          <img src="./assets/architecture.jpg"></img>
+        </a>
+          <div class="small">Photo quiz</div>
+        <a href="http://projects.seattletimes.com/2015/seattle-architecture-quiz/">
+          <div>How well do you know Seattle's architecture?</div>
+        </a>
+        </div>
+      </div>
+      
+      <div class="story">
+        <div class="padded">
+          <a href="http://www.seattletimes.com/tag/throwback-thursday/">
+            <img src="./assets/pasttimes.jpg"></img>
+          </a>
+            <div class="small">Throwback Thursday</div>
+          <a href="http://www.seattletimes.com/tag/throwback-thursday/">
+            <div>Historical photos from The Seattle Times' archives</div>
+          </a>
+        </div>
+      </div>
+
+      <div class="story">
+        <div class="padded">
+          <a href="http://www.seattletimes.com/author/gabriel-campanario-seattle-sketcher/">
+            <img src="./assets/sketcher.jpg"></img>
+          </a>
+            <div class="small">Columnist</div>
+          <a href="http://www.seattletimes.com/author/gabriel-campanario-seattle-sketcher/">
+            <div>Seattle Sketcher Gabriel Campanario</div>
+          </a>
+        </div>
+      </div>
+
+      <div class="story">
+        <div class="padded">
+        <a href="http://www.seattletimes.com/seattle-news/amid-drought-rattlesnake-lake-reveals-its-roots/">
+          <img src="./assets/rattlesnake.jpg"></img>
+        </a>
+          <div class="small">Photography</div>
+        <a href="http://www.seattletimes.com/seattle-news/amid-drought-rattlesnake-lake-reveals-its-roots/">
+          <div>Amid drought, Rattlesnake Lake reveals its roots</div>
+        </a>
+        </div>
+      </div>
+      
+    </div>
+
+    <%= t.include("partials/_ad.html", { type: "bannerBottom" }) %>
+
+    <footer>
+      <a class="logo" href="http://seattletimes.com">
+        <img src="./assets/st-logo.png">
+      </a>
+    </footer>
 
     <script>
       var data = <%= JSON.stringify(csv.images) %>;
