@@ -30,6 +30,7 @@ body {
 
 .splash {
   max-width: 930px;
+  width: 100%;
 }
 
 .gallery {
@@ -133,8 +134,19 @@ body {
   font-weight: bold;
   font-size: 30px;
   font-family: @df-sans;
-  display: inline-block;
   padding-bottom: 5px;
+}
+.title {
+  .display-flex();
+}
+
+.arrow-box {
+  .flex(0 0 20px);
+  text-align: center;
+}
+.featured {
+  .flex(1);
+  text-align: center;
 }
 
 .arrow, .rewind {
@@ -149,6 +161,10 @@ body {
   }
   &.hidden {
     display: none;
+  }
+  &.disabled {
+    color: @df-light-gray;
+    cursor: default;
   }
 
   &.next {
@@ -183,7 +199,7 @@ body {
     background: @black;
 
     &.muted {
-      background: @df-border-gray;
+      background: @df-middle-gray;
     }
   }
 }
@@ -203,11 +219,11 @@ body {
 }
 
 .play {
-  position: absolute;
-  top: 60%;
-  left: 45%;
+  text-align: center;
   color: @dark;
   cursor: pointer;
+  font-family: @df-sans;
+  text-transform: uppercase;
 
   &:hover {
     color: @black;
@@ -215,11 +231,26 @@ body {
 
   &.with-sound {
     font-size: 90px;
+
+    .note {
+      font-size: 12px;
+      font-weight: bold;
+
+      .fa {
+        font-size: 16px;
+      }
+    }
+
   }
 
   &.without-sound {
-    top: 75%;
-    left: 42%;
+    .note {
+      font-size: 11px;
+      
+      .fa {
+        font-size: 12px;
+      }
+    }
   }
 }
 

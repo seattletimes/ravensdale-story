@@ -80,7 +80,11 @@ var begin = function() {
 var changeImage = function() {
   document.querySelector(".desktop-index .dot-" + (index + 1)).classList.add("darker");
   document.querySelector(".mobile-index .dot-" + (index + 1)).classList.add("darker");
-  document.querySelector(".title").innerHTML = `<i class="previous arrow fa fa-chevron-left"></i><div class="featured">${data[index].featured}</div><i class="fa hidden rewind fa-undo"></i><i class="next fa arrow fa-chevron-right"></i>`;
+  document.querySelector(".title").innerHTML = `
+    <div class="arrow-box"><i class="previous arrow fa fa-chevron-left"></i></div>
+    <div class="featured">${data[index].featured}</div>
+    <div class="arrow-box"><i class="fa hidden rewind fa-undo"></i><i class="next fa arrow fa-chevron-right"></i></div>
+  `;
   document.querySelector(".caption").innerHTML = data[index].caption;
   var img = document.createElement("img");
   img.src = `./assets/${data[index].image}`;
@@ -108,9 +112,9 @@ var changeImage = function() {
     });
     document.querySelector(".mobile-index .dot-" + (index + 1)).classList.add("darker");
     document.querySelector(".desktop-index .dot-" + (index + 1)).classList.add("darker");
-    document.querySelector(".previous").classList.add("hidden");
+    document.querySelector(".previous").classList.add("disabled");
   } else {
-    document.querySelector(".previous").classList.remove("hidden");
+    document.querySelector(".previous").classList.remove("disabled");
   }
 
   var audio = document.querySelector("audio");
@@ -132,8 +136,10 @@ var changeImage = function() {
     changeImage();
   });
   document.querySelector(".previous").addEventListener("click", function(e) {
-    if (index > 0) index -= 1;
-    changeImage();
+    if (index > 0) {
+      index -= 1;
+      changeImage();
+    }
   });
   document.querySelector(".rewind").addEventListener("click", function(e) {
     index = 0;
@@ -146,9 +152,9 @@ var changeImage = function() {
     document.querySelector(".next").classList.remove("hidden");
   }
   if (index == 0) { 
-    document.querySelector(".previous").classList.add("hidden");
+    document.querySelector(".previous").classList.add("disabled");
   } else {
-    document.querySelector(".previous").classList.remove("hidden");
+    document.querySelector(".previous").classList.remove("disabled");
   }
 };
 
