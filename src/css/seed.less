@@ -233,12 +233,12 @@ body {
   text-align: center;
   margin: auto;
   position: absolute;
-  bottom: 10%;
+  bottom: 5%;
 }
 
 .play-buttons {
   background: rgba(223,211,211,.85);
-  padding: 20px;
+  padding: 10px 20px;
   text-align: center;
   display: inline-block;
   border-radius: 2px;
@@ -251,7 +251,7 @@ body {
   text-transform: uppercase;
 
   &.with-sound {
-    font-size: 30px;
+    font-size: 28px;
     background: @dark;
     color: white;
     display: inline-block;
@@ -264,17 +264,18 @@ body {
     }
     .note {
       padding-left: 10px;
-      font-size: 16px;
+      font-size: 14px;
       font-weight: bold;
       display: inline-block;
       vertical-align: top;
       line-height: 40px;
+      letter-spacing: 1px;
     }
 
   }
 
   &.without-sound {
-    padding-top: 20px;
+    padding-top: 15px;
 
     .note {
       font-size: 12px;
@@ -330,12 +331,6 @@ body {
 
   @media @mobile {
     font-size: 12px;
-  }
-
-  .fancy {
-    font-family: 'Amatic SC';
-    font-size: 24px;
-    font-style: normal;
   }
 }
 
