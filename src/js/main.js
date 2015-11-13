@@ -16,7 +16,7 @@ document.querySelector(".play.without-sound").addEventListener("click", function
   begin();
 });
 
-var index = 0;
+var index = 7;
 var length = data.length - 1;
 
 var begin = function() {
@@ -99,12 +99,20 @@ var changeImage = function() {
     document.querySelector(".buttons").classList.add("hidden");
     document.querySelector(".next").classList.add("hidden");
     document.querySelector(".rewind").classList.remove("hidden");
+    Array.prototype.slice.call(document.querySelectorAll(".index")).forEach(function(dot) {
+      dot.classList.add("hidden");
+    });
+    document.querySelector(".readmore").classList.add("hidden");
   } else {
     document.querySelector(".buttons").classList.remove("hidden");
     document.querySelector(".next").classList.remove("hidden");
     document.querySelector(".rewind").classList.add("hidden");
     document.querySelector(".mobile-index .dot-" + (index + 2)).classList.remove("darker");
     document.querySelector(".desktop-index .dot-" + (index + 2)).classList.remove("darker");
+    Array.prototype.slice.call(document.querySelectorAll(".index")).forEach(function(dot) {
+      dot.classList.remove("hidden");
+    });
+    document.querySelector(".readmore").classList.remove("hidden");
   }
   if (index == 0) { 
     Array.prototype.slice.call(document.querySelectorAll(".index .fa")).forEach(function(dot) {

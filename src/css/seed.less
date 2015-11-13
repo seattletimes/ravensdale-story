@@ -301,10 +301,16 @@ body {
 
 .sources {
   font-style: italic;
-  font-size: 14px;
+  font-size: 16px;
 
   @media @mobile {
     font-size: 12px;
+  }
+
+  .fancy {
+    font-family: 'Amatic SC';
+    font-size: 24px;
+    font-style: normal;
   }
 }
 
@@ -323,4 +329,45 @@ body {
   font-size: 14px;
   text-align: center;
   display: inline-block;
+
+  @media @tablet {
+    display: block;
+  }
+}
+
+.divider {
+  @media @tablet {
+    display: none;
+  }
+}
+
+.subscribe {
+  font-family: @df-sans;
+  font-size: 16px;
+  padding-top: 10px;
+}
+
+.small-logo {
+  height: 20px;
+  padding-left: 16px;
+  margin-bottom: 5px;
+  vertical-align: bottom;
+  display: block;
+}
+
+.subscribe-button {
+  margin: 5px 0;
+  background: @dark;
+  font-family: @df-sans;
+  display: inline-block;
+  color: white;
+  padding: 9px 14px 8px 14px;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  transition: background .1s linear;
+
+  &:hover {
+    color: white;
+    background: @black;
+  }
 }
