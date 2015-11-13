@@ -16,7 +16,7 @@ document.querySelector(".play.without-sound").addEventListener("click", function
   begin();
 });
 
-var index = 7;
+var index = 0;
 var length = data.length - 1;
 
 var begin = function() {

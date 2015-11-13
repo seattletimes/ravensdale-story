@@ -54,12 +54,27 @@ nav.top-bar {
   right: 0;
   top: 50%;
 
+  @media @tablet {
+    right: 4px;
+    width: auto !important;
+  }
+
   label {
     background: white !important;
   }
 
   @media @mobile {
-    top: 0;
+    top: 9px;
+
+    label {
+      span {
+        display: none;
+      }
+    }
+
+    .left {
+      margin-left: -265px !important;
+    }
   }
 }
 

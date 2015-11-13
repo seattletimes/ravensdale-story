@@ -228,37 +228,62 @@ body {
   }
 }
 
+.play-wrapper {
+  width: 100%;
+  text-align: center;
+  margin: auto;
+  position: absolute;
+  bottom: 10%;
+}
+
+.play-buttons {
+  background: rgba(223,211,211,.85);
+  padding: 20px;
+  text-align: center;
+  display: inline-block;
+  border-radius: 2px;
+}
+
 .play {
   text-align: center;
-  color: @dark;
   cursor: pointer;
   font-family: @df-sans;
   text-transform: uppercase;
 
-  &:hover {
-    color: @black;
-  }
-
   &.with-sound {
-    font-size: 90px;
+    font-size: 30px;
+    background: @dark;
+    color: white;
+    display: inline-block;
+    padding: 5px 15px 0 15px;
+    border-radius: 2px;
+    transition: background .1s linear;
 
+    &:hover {
+      background: @black;
+    }
     .note {
-      font-size: 12px;
+      padding-left: 10px;
+      font-size: 16px;
       font-weight: bold;
-
-      .fa {
-        font-size: 16px;
-      }
+      display: inline-block;
+      vertical-align: top;
+      line-height: 40px;
     }
 
   }
 
   &.without-sound {
+    padding-top: 20px;
+
     .note {
-      font-size: 11px;
-      
-      .fa {
-        font-size: 12px;
+      font-size: 12px;
+      font-weight: bold;
+      color: @black;
+      transition: color .1s linear;
+
+      &:hover {
+        color: @dark;
       }
     }
   }
