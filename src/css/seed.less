@@ -67,16 +67,12 @@ body {
   }
 
   @media @tablet {
-    margin-top: 10px;
     text-align: center;
-    display: block !important;
   }
 }
 
 .buttons {
-  @media @tablet {
-    text-align: center;
-  }
+  text-align: center;
 }
 
 .index {
@@ -92,9 +88,11 @@ body {
 
   &.mobile-index {
     display: none;
+    text-align: center;
+    padding-top: 5px;
   }
 
-  @media @littlebreak {
+  @media @tablet {
     &.mobile-index {
       display: block;
     }
@@ -119,6 +117,11 @@ body {
   &:hover {
     color: @black;
   }
+
+  @media @tablet {
+    float: none;
+    text-align: right;
+  }
 }
 
 .caption {
@@ -127,6 +130,11 @@ body {
   }
   @media @littlebreak {
     font-size: 16px;
+  }
+  @media @tablet {
+    p {
+      margin-bottom: 0;
+    }
   }
 }
 
@@ -147,6 +155,14 @@ body {
 .featured {
   .flex(1);
   text-align: center;
+  font-family: 'Amatic SC';
+  font-weight: bold;
+  font-size: 48px;
+  color: @dark;
+
+  @media @mobile {
+    font-size: 42px;
+  }
 }
 
 .arrow, .rewind {
@@ -154,7 +170,12 @@ body {
   color: @brown;
   cursor: pointer;
   transition: color .1s linear;
-  font-size: 26px !important;
+  font-size: 30px !important;
+  line-height: 72px !important;
+
+  @media @mobile {
+    line-height: 62px !important;
+  }
 
   &:hover {
     color: @black;
@@ -165,13 +186,6 @@ body {
   &.disabled {
     color: @df-light-gray;
     cursor: default;
-  }
-
-  &.next {
-    padding-left: 10px;
-  }
-  &.previous {
-    padding-right: 10px;
   }
 }
 
