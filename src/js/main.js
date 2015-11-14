@@ -92,11 +92,9 @@ http://www.seattletimes.com/seattle-news/puget-sound/ravensdale-marks-100-years-
 };
 
 var changeImage = function() {
-      console.log(index)
   qsa(".index i").forEach(function(dot) {
     var i = dot.getAttribute("data-index") * 1;
     if (i <= index) {
-          console.log(dot)
       dot.classList.add("darker");
     } else {
       dot.classList.remove("darker");
