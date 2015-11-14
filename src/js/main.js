@@ -48,7 +48,8 @@ var begin = function() {
       </div>
 
       <div class="caption"></div>
-      <div class="readmore"><a href="#" target="_blank">Read the full story <i class="fa fa-long-arrow-right"></i></a></div>
+      <div class="readmore"><a href="
+http://www.seattletimes.com/seattle-news/puget-sound/ravensdale-marks-100-years-since-states-worst-mining-disaster/" target="_blank">Read the full story <i class="fa fa-long-arrow-right"></i></a></div>
       <div class="index desktop-index">
         <i class="fa fa-circle dot-1"></i>
         <i class="fa fa-circle dot-2"></i>
