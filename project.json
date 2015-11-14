@@ -5,16 +5,16 @@
       "path": "shallow-covering"
     },
     "live": {
-      "bucket": "",
-      "path": ""
+      "bucket": "projects.seattletimes.com",
+      "path": "2015/ravensdale"
     }
   },
-  "title": "",
+  "title": "Ravensdale: Tragedy strikes a mining town",
   "description": "",
   "url": "",
   "slug": "",
   "tags": [],
-  "image": "assets/social.jpg",
+  "image": "assets/teaser.jpeg",
   "production": false,
-  "embedded": true
+  "embedded": false
 }
