@@ -5,6 +5,7 @@ require("./lib/ads");
 require("component-responsive-frame/child");
 
 var sound;
+var audio;
 
 var qsa = s => Array.prototype.slice.call(document.querySelectorAll(s));
 
@@ -22,58 +23,7 @@ var index = 0;
 var length = data.length - 1;
 
 var begin = function() {
-  document.querySelector(".gallery").innerHTML = `
-    <div class="image">
-      <img src="./assets/slide1.gif">
-    </div>
-
-    <div class="column">
-      <div class="index mobile-index">
-        <i class="fa fa-circle dot-1" data-index="0"></i>
-        <i class="fa fa-circle dot-2" data-index="1"></i>
-        <i class="fa fa-circle dot-3" data-index="2"></i>
-        <i class="fa fa-circle dot-4" data-index="3"></i>
-        <i class="fa fa-circle dot-5" data-index="4"></i>
-        <i class="fa fa-circle dot-6" data-index="5"></i>
-        <i class="fa fa-circle dot-7" data-index="6"></i>
-        <i class="fa fa-circle dot-8" data-index="7"></i>
-      </div>
-
-      <div class="title"></div>
-
-      <div class="buttons">
-        <div class="listen"><i class="fa fa-volume-up"></i> LISTEN</div>
-
-        <div class="audio-icons">
-          <div class="audio-icon"><i class="playing fa fa-microphone"></i><i class="silenced fa fa-microphone-slash"></i> MUTE</div>
-        </div>
-      </div>
-
-      <div class="caption"></div>
-
-      <div class='subscribe hidden'>
-        <img class='small-logo' src='./assets/seattletimes.svg'>
-        <a href='http://www.seattletimes.com/subscribe/signup/?icn=promo-project&ici=subscribe' class='subscribe-button'>
-          Become a subscriber!
-        </a>
-      </div>
-
-      <div class="readmore"><a href="
-http://www.seattletimes.com/seattle-news/puget-sound/ravensdale-marks-100-years-since-states-worst-mining-disaster/" target="_blank">Read the full story <i class="fa fa-long-arrow-right"></i></a></div>
-      <div class="index desktop-index">
-        <i class="fa fa-circle dot-1" data-index="0"></i>
-        <i class="fa fa-circle dot-2" data-index="1"></i>
-        <i class="fa fa-circle dot-3" data-index="2"></i>
-        <i class="fa fa-circle dot-4" data-index="3"></i>
-        <i class="fa fa-circle dot-5" data-index="4"></i>
-        <i class="fa fa-circle dot-6" data-index="5"></i>
-        <i class="fa fa-circle dot-7" data-index="6"></i>
-        <i class="fa fa-circle dot-8" data-index="7"></i>
-      </div>
-
-
-    </div>
-  `;
+  document.querySelector(".gallery").innerHTML = require("./_slide.html");
 
   changeImage();
 
@@ -89,7 +39,10 @@ http://www.seattletimes.com/seattle-news/puget-sound/ravensdale-marks-100-years-
 
   document.querySelector(".audio-icon").addEventListener("click", function(e) {
     if (sound) {
-      document.querySelector("audio").pause();
+      if (audio) {
+        audio.pause();
+        audio.currentTime = 0;
+      }
       document.querySelector(".audio-icon").classList.add("muted");
       sound = false;
     } else {
@@ -124,13 +77,8 @@ var changeImage = function() {
   }
 
   if (index == length) { 
-    // document.querySelector(".buttons").classList.add("hidden");
     document.querySelector(".next").classList.add("hidden");
     document.querySelector(".rewind").classList.remove("hidden");
-   // qsa(".index").forEach(function(dot) {
-   //    dot.classList.add("hidden");
-   //  });
-    // document.querySelector(".readmore").classList.add("hidden");
   } else {
     document.querySelector(".buttons").classList.remove("hidden");
     document.querySelector(".next").classList.remove("hidden");
@@ -146,17 +94,23 @@ var changeImage = function() {
     document.querySelector(".previous").classList.remove("disabled");
   }
 
-  var audio = document.querySelector("audio");
   if (audio) document.body.removeChild(audio);
 
   audio = document.createElement("audio");
   audio.src = `./assets/${data[index].audio}`;
   document.body.appendChild(audio);
 
-  if (sound) { audio.play(); }
+  if (sound) audio.play();
 
   document.querySelector(".listen").addEventListener("click", function(e) {
-    document.querySelector("audio").play();
+    if (audio) {
+      if (audio.paused) {
+        audio.play();
+      } else {
+        audio.pause();
+        audio.currentTime = 0;
+      }
+    }
     document.querySelector(".audio-icon").classList.remove("muted");
     sound = true;
   });
@@ -174,18 +128,5 @@ var changeImage = function() {
     index = 0;
     changeImage();
   });
-
-  if (index == length) { 
-    document.querySelector(".next").classList.add("hidden");
-    document.querySelector(".subscribe").classList.remove("hidden");
-  } else {
-    document.querySelector(".next").classList.remove("hidden");
-    document.querySelector(".subscribe").classList.add("hidden");
-  }
-  if (index == 0) { 
-    document.querySelector(".previous").classList.add("disabled");
-  } else {
-    document.querySelector(".previous").classList.remove("disabled");
-  }
 };
 
