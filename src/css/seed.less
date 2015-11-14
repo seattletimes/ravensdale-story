@@ -117,6 +117,9 @@ body {
     margin: 0 2px;
     color: @light;
 
+    @media @tablet {
+      margin: 0 6px;
+    }
     &.darker {
       color: @dark;
     }
@@ -377,9 +380,14 @@ body {
 .sources {
   font-style: italic;
   font-size: 16px;
+  padding-bottom: 2px;
 
   @media @mobile {
     font-size: 12px;
+  }
+
+  &.special {
+    padding: 10px 0;
   }
 }
 
@@ -413,7 +421,7 @@ body {
 .subscribe {
   font-family: @df-sans;
   font-size: 16px;
-  padding-top: 10px;
+  padding-bottom: 20px;
 }
 
 .small-logo {
@@ -438,5 +446,21 @@ body {
   &:hover {
     color: white;
     background: @black;
+  }
+}
+
+.creativecommons {
+  font-family: @df-sans;
+  font-size: 10px;
+  padding-top: 4px;
+  color: @df-middle-gray;
+
+  a {
+    color: @brown;
+    transition: color .1s linear;
+
+    &:hover {
+      color: @dark;
+    }
   }
 }

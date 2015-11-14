@@ -50,6 +50,14 @@ var begin = function() {
       </div>
 
       <div class="caption"></div>
+
+      <div class='subscribe hidden'>
+        <img class='small-logo' src='./assets/seattletimes.svg'>
+        <a href='http://www.seattletimes.com/subscribe/signup/?icn=promo-project&ici=subscribe' class='subscribe-button'>
+          Become a subscriber!
+        </a>
+      </div>
+
       <div class="readmore"><a href="
 http://www.seattletimes.com/seattle-news/puget-sound/ravensdale-marks-100-years-since-states-worst-mining-disaster/" target="_blank">Read the full story <i class="fa fa-long-arrow-right"></i></a></div>
       <div class="index desktop-index">
@@ -116,13 +124,13 @@ var changeImage = function() {
   }
 
   if (index == length) { 
-    document.querySelector(".buttons").classList.add("hidden");
+    // document.querySelector(".buttons").classList.add("hidden");
     document.querySelector(".next").classList.add("hidden");
     document.querySelector(".rewind").classList.remove("hidden");
    // qsa(".index").forEach(function(dot) {
    //    dot.classList.add("hidden");
    //  });
-    document.querySelector(".readmore").classList.add("hidden");
+    // document.querySelector(".readmore").classList.add("hidden");
   } else {
     document.querySelector(".buttons").classList.remove("hidden");
     document.querySelector(".next").classList.remove("hidden");
@@ -169,8 +177,10 @@ var changeImage = function() {
 
   if (index == length) { 
     document.querySelector(".next").classList.add("hidden");
+    document.querySelector(".subscribe").classList.remove("hidden");
   } else {
     document.querySelector(".next").classList.remove("hidden");
+    document.querySelector(".subscribe").classList.add("hidden");
   }
   if (index == 0) { 
     document.querySelector(".previous").classList.add("disabled");
