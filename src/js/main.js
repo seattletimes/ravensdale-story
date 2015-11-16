@@ -27,6 +27,8 @@ var begin = function() {
 
   changeImage();
 
+  if (!sound) document.querySelector(".audio-icon").classList.add("muted");
+
   var onClickIndex = function() {
     var newIndex = this.getAttribute("data-index");
     index = newIndex;
@@ -39,13 +41,12 @@ var begin = function() {
 
   document.querySelector(".audio-icon").addEventListener("click", function(e) {
     if (sound) {
-      if (audio) {
-        audio.pause();
-        audio.currentTime = 0;
-      }
+      audio.pause();
+      audio.currentTime = 0;
       document.querySelector(".audio-icon").classList.add("muted");
       sound = false;
     } else {
+      audio.play();
       document.querySelector(".audio-icon").classList.remove("muted");
       sound = true;
     }
@@ -79,7 +80,9 @@ var changeImage = function() {
   if (index == length) { 
     document.querySelector(".next").classList.add("hidden");
     document.querySelector(".rewind").classList.remove("hidden");
+    document.querySelector(".subscribe").classList.remove("hidden");
   } else {
+    document.querySelector(".subscribe").classList.add("hidden");
     document.querySelector(".buttons").classList.remove("hidden");
     document.querySelector(".next").classList.remove("hidden");
     document.querySelector(".rewind").classList.add("hidden");
@@ -103,14 +106,15 @@ var changeImage = function() {
   if (sound) audio.play();
 
   document.querySelector(".listen").addEventListener("click", function(e) {
-    if (audio) {
-      if (audio.paused) {
-        audio.play();
-      } else {
-        audio.pause();
-        audio.currentTime = 0;
-      }
-    }
+    // if (audio) {
+    //   if (audio.paused) {
+    //     audio.play();
+    //   } else {
+    //     audio.pause();
+    //     audio.currentTime = 0;
+    //   }
+    // }
+    audio.play();
     document.querySelector(".audio-icon").classList.remove("muted");
     sound = true;
   });

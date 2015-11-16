@@ -116,12 +116,17 @@ body {
     font-size: 10px;
     margin: 0 2px;
     color: @light;
+    transition: color .1s linear;
 
     @media @tablet {
       margin: 0 6px;
     }
     &.darker {
       color: @dark;
+    }
+    
+    &:hover {
+      color: @brown;
     }
   }
 
