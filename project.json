@@ -10,11 +10,11 @@
     }
   },
   "title": "Tragedy strikes a mining town",
-  "description": "Ravensdale, in Southeast King County, is marking the 100th anniversary of the day 31 coal miners died in one of the state’s worst mining disasters.",
+  "description": "Ravensdale is marking the 100th anniversary of one of the state’s worst mining disasters.",
   "url": "",
   "slug": "",
   "tags": ["sketcher", "coal", "mining", "history"],
-  "image": "assets/teaser.jpeg",
+  "image": "",
   "production": true,
   "embedded": false
 }
